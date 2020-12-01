@@ -193,7 +193,7 @@ def courbesimilarites(c, p, i) :
 #les programmes courbesimilarites et courbe renvoient une erreur mais nous ne comprenont pas pourquoi
 
 def courbe (c):
-    X=[0]
+    X=[]
     Y1=[]    
     Y2=[]    
     Y3=[]    
@@ -206,22 +206,38 @@ def courbe (c):
             Y1.append(T[i][2])            
             Y2.append(T[i][3])
             Y3.append(T[i][4])
-            Y4.append(T[i][5])                                    
+            Y4.append(T[i][5])
+            Y5.append(T[i][6])
     ax[0].plot(X,Y1,label='niveau sonore')
+    ax[0].plot(X,moyenne(2,c),label='moyenne')
+    ax[0].plot(X,min(2,c),label='minimum')
+    ax[0].plot(X,maxi(2,c),label='maximum')
     ax[0].set(Xlabel='temps',Ylabel='niveau sonore(dB)',title='niveau sonore en fonction du temps pour le capteur'+str(c))
     ax[0].grid(True)
-    ax[1].plot(X,Y2,label='température')
+    ax[1].plot(x,y2,label='température')
+    ax[1].plot(X,moyenne(3,c),label='moyenne')
+    ax[1].plot(X,min(3,c),label='minimum')
+    ax[1].plot(X,maxi(3,c),label='maximum')
     ax[1].set(Xlabel='temps',Ylabel='température (°C)',title='température en fonction du temps pour le capteur'+str(c))
     ax[1].grid(True)
-    ax[2].plot(X,Y3,label='humidité')
+    ax[2].plot(x,y3,label='humidité')
+    ax[2].plot(X,moyenne(4,c),label='moyenne')
+    ax[2].plot(X,min(4,c),label='minimum')
+    ax[2].plot(X,maxi(4,c),label='maximum')
     ax[2].set(Xlabel='temps',Ylabel='humidité',title='humidité en fonction du temps pour le capteur'+str(c))
     ax[2].grid(True)
-    ax[3].plot(X,Y4,label='luminosité')
+    ax[3].plot(x,y4,label='luminosité')
+    ax[3].plot(X,moyenne(5,c),label='moyenne')
+    ax[3].plot(X,min(5,c),label='minimum')
+    ax[3].plot(X,maxi(5,c),label='maximum')
     ax[3].set(Xlabel='temps',Ylabel='luminosité (lux)',title='luminosité en fonction du temps pour le capteur'+str(c))
     ax[3].grid(True)
-    ax[4].plot(X,Y5,label='quantité de CO2')
-    ax[5].set(Xlabel='temps',Ylabel='quantité de CO2 (ppm)',title='quantité de CO2 en fonction du temps pour le capteur'+str(c))
-    ax[5].grid(True)
+    ax[4].plot(x,y5,label='quantité de CO2')
+    ax[4].plot(X,moyenne(6,c),label='moyenne')
+    ax[4].plot(X,min(6,c),label='minimum')
+    ax[4].plot(X,maxi(6,c),label='maximum')
+    ax[4].set(Xlabel='temps',Ylabel='quantité de CO2 (ppm)',title='quantité de CO2 en fonction du temps pour le capteur'+str(c))
+    ax[4].grid(True)
     plt.show()
 
 plt.close()
